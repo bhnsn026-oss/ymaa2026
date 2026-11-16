@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>身体 → 数 → 疑い → 身体</title>
-<meta name="description" content="100人の投手が投げた411球を、機械学習モデルが「見る」ときに何が失われるかを描いた映像作品。">
+<title>Sweet Spot</title>
+<meta name="description" content="投球に「正解の角度」はあるのか。AIに球速を予測させ、その主張と不確かさを映像と音にした作品。">
 <meta name="robots" content="noindex">
 <style>
   :root { --fg: #e9e6e0; --dim: #9a968e; --line: #2a2926; --bg: #000; }
@@ -20,7 +20,8 @@
   .stage video { display: block; width: 100%; max-height: 92vh; aspect-ratio: 16 / 9; background: #000; }
   main { max-width: 720px; margin: 0 auto; padding: 72px 24px 120px; }
   h1, h2 { font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif; font-weight: 400; }
-  h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.5; letter-spacing: .12em; margin: 0 0 8px; }
+  h1 { font-size: clamp(34px, 7vw, 56px); line-height: 1.3; letter-spacing: .04em; margin: 0 0 12px; }
+  h1[lang="en"] { font-family: Georgia, "Times New Roman", serif; }
   .meta { color: var(--dim); font-size: 14px; margin: 0 0 56px; }
   .lead { font-size: clamp(17px, 2.6vw, 20px); line-height: 2.1; margin: 0 0 56px; }
   h2 { font-size: 15px; letter-spacing: .3em; color: var(--dim); margin: 72px 0 20px; padding-top: 28px; border-top: 1px solid var(--line); }
@@ -64,15 +65,15 @@
 <p class="alt">再生できない場合は <a href="https://youtu.be/QaN7_BPrjsE">YouTube で見る</a></p>
 
 <main>
-  <h1>身体 → 数 → 疑い → 身体</h1>
+  <h1 lang="en">Sweet Spot</h1>
   <p class="meta">KOTARO OKUMURA　／　2026年　／　映像・音　1分40秒（音声あり）</p>
 
-  <p class="lead">100人の投手が投げた411球を、機械学習モデルが「見る」とき、身体は1球につき1点へ縮みます。この作品は、その1点が身体から何を捨てて作られ、どこまで確かで、どこから先が分からないのかを、映像と音にしたものです。</p>
+  <p class="lead">投球には「正解の角度」があるのではないか。スポーツバイオメカニクスを学ぶ中で抱いたこの疑問から、本作は始まりました。骨盤と肩のねじれにスイートスポットがあるなら、AIに球速を予測させ、その中身を覗けば見つかるはずだと考えたのです。</p>
 
   <h2>制作意図</h2>
-  <p>冒頭、1人の投手が投げます。やがて411球が重なり、身体は雲になります。次に、その身体が1球につき1点へ吸い込まれます。球速を予測するモデルにとって、1球は「骨盤と肩のねじれの角度」と「それが予測をどれだけ動かしたか」という2つの数にすぎないからです。点が並ぶと、「ねじれが大きいほど球は速い」という主張が、澄んだ和音とともに現れます。</p>
-  <p>しかし、このモデルが説明できるのは、球速のばらつきの約3割です。後半では、その不確かさを画面に加えていきます。投手を入れ替えると変わる値は霞み、予測が外れる球は震え、データが少ない領域は色を失います。音は濁り、説明できない約7割が、ざわめきとして広がります。最後に点は身体へ戻り、そろえられていた時間はほどけて、それぞれの投手が自分のテンポで投げ始めます。</p>
-  <p>AIによる説明は、もっともらしい1枚の図として示されがちです。本作は、その図の確かさと不確かさを、解析の検証結果そのものを素材にして体験できるようにしました。「正解のフォーム」を示すことは目的としていません。</p>
+  <p>投手100人・411球のデータで予測モデル（XGBoost）を作り、AIが何をどれだけ重く見たかを示すSHAP値を計算しました。たしかにAIは、ねじれが30〜40度の球を高く評価しました。しかし検証を重ねるほど、その山の頂上はぼやけていきました。AIが説明できたのは、球速の違いの約3割にすぎません。</p>
+  <p>本作は、この過程をそのまま映像と音にしたものです。投手の身体が1球1点に縮み、AIの主張が澄んだ和音とともに現れ、やがて不確かさの霞に包まれ、最後に点は身体へ戻ります。霞も震えも、すべて検証で得た数値から作成しました。</p>
+  <p>数値が増えるほど、分析はAIに任せたほうが的確になり、効率が求められる時代です。私自身、数値を土台にこの作品を作りました。それでも、1点に縮められる前の身体には、数値に収まらない美しさがあります。数値の力と、数値だけで生きることへの疑いを、一つの画面に同居させたいと考えました。</p>
 
   <h2>構成</h2>
   <dl class="acts">
@@ -129,10 +130,10 @@
   <p class="note">モデルが説明できるのは球速のばらつきの約3割で、示しているのは傾向であり、因果ではありません。同じ投手の球は互いによく似ているため、実質的な標本は411球ではなく約100人です。対象の多くは大学生で、プロや一般の投手にそのまま当てはめることはできません。</p>
 
   <h2>展示について</h2>
-  <p>展示では、TouchDesigner によるインタラクティブ版を予定しています。来場者が不確かさのつまみを自分の手で動かし、モデルの主張が霞んでいく過程を操作できます。</p>
+  <p>スポーツ科学、AI、インタラクティブな表現を横断する試みです。展示では、来場者が不確かさを自分の手で操作できる版（TouchDesigner）を予定しています。</p>
 
   <h2>Summary</h2>
-  <p lang="en">411 pitches thrown by 100 pitchers. A machine-learning model that predicts ball velocity sees each pitch as a single point: one angle, and how much that angle moved its prediction. This piece shows the body collapsing into that point, the model's confident claim, and then everything the claim leaves out. Haze, tremor and fading colour each stand for a different kind of uncertainty measured in the analysis. In the end the points return to bodies, each moving at its own tempo.</p>
+  <p lang="en">Is there a “right angle” for pitching? This piece began with that question. I trained a model to predict ball velocity from the motion of 100 pitchers across 411 pitches, then looked inside it to see what it valued. The model did favour a hip-shoulder separation of 30 to 40 degrees. But the more I tested it, the more that peak blurred, and the model could account for only about 30 percent of the differences in velocity. The film follows that process: bodies collapse into single points, the model's claim arrives as a clear chord, uncertainty spreads as haze, and the points return to bodies. Numbers are the foundation of this work. It also holds a doubt about living by numbers alone.</p>
 
   <h2>クレジット</h2>
   <p class="note">Data: <a href="https://openbiomechanics.org">OpenBiomechanics Project</a> (Driveline Baseball), <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Modified.<br>
