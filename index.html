@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>身体 → 数 → 疑い → 身体</title>
+<meta name="description" content="100人の投手が投げた411球を、機械学習モデルが「見る」ときに何が失われるかを描いた映像作品。">
+<meta name="robots" content="noindex">
+<style>
+  :root { --fg: #e9e6e0; --dim: #9a968e; --line: #2a2926; --bg: #000; }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0; color: var(--fg); background: var(--bg);
+    font-family: "Hiragino Sans", "Yu Gothic", "YuGothic", "Meiryo", "Noto Sans JP", sans-serif;
+    font-size: 16px; line-height: 2; letter-spacing: .02em;
+    -webkit-font-smoothing: antialiased;
+  }
+  .stage { width: 100%; background: #000; }
+  .stage video { display: block; width: 100%; max-height: 92vh; aspect-ratio: 16 / 9; background: #000; }
+  main { max-width: 720px; margin: 0 auto; padding: 72px 24px 120px; }
+  h1, h2 { font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", serif; font-weight: 400; }
+  h1 { font-size: clamp(26px, 5vw, 40px); line-height: 1.5; letter-spacing: .12em; margin: 0 0 8px; }
+  .meta { color: var(--dim); font-size: 14px; margin: 0 0 56px; }
+  .lead { font-size: clamp(17px, 2.6vw, 20px); line-height: 2.1; margin: 0 0 56px; }
+  h2 { font-size: 15px; letter-spacing: .3em; color: var(--dim); margin: 72px 0 20px; padding-top: 28px; border-top: 1px solid var(--line); }
+  p { margin: 0 0 1.4em; }
+  dl { margin: 0; }
+  .acts div { display: grid; grid-template-columns: 7.5em 1fr; gap: 0 20px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .acts dt { color: var(--dim); font-size: 14px; }
+  .acts dt b { display: block; color: var(--fg); font-weight: 400; font-size: 16px; letter-spacing: .2em; }
+  .acts dd { margin: 0; }
+  .map div { display: grid; grid-template-columns: 9em 1fr; gap: 0 20px; padding: 8px 0; }
+  .map dt { color: var(--dim); }
+  .map dd { margin: 0; }
+  .note { color: var(--dim); font-size: 14px; line-height: 1.9; }
+  .alt { max-width: 720px; margin: 14px auto 0; padding: 0 24px; color: var(--dim); font-size: 13px; text-align: right; }
+  .alt a { color: var(--dim); }
+  .facts div { display: grid; grid-template-columns: 9em 1fr; gap: 0 20px; padding: 8px 0; }
+  .facts dt { color: var(--dim); }
+  .facts dd { margin: 0; }
+  figure { margin: 36px 0 28px; }
+  figure svg { display: block; width: 100%; height: auto; }
+  figcaption { color: var(--dim); font-size: 13px; line-height: 1.8; margin-top: 10px; }
+  svg text { font-family: inherit; fill: #9a968e; font-size: 12px; }
+  a { color: var(--fg); text-underline-offset: 4px; }
+  a:focus-visible, video:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+  [lang="en"] { font-family: Georgia, "Times New Roman", serif; letter-spacing: 0; line-height: 1.8; }
+  @media (max-width: 520px) {
+    .acts div, .map div, .facts div { grid-template-columns: 1fr; }
+    main { padding-top: 48px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <!-- 動画ファイル work.mp4 と、サムネイル thumbnail.jpg を、この index.html と同じフォルダに置く -->
+  <video controls playsinline preload="metadata" poster="thumbnail.jpg">
+    <source src="work.mp4" type="video/mp4">
+    お使いのブラウザでは動画を再生できません。<a href="work.mp4">動画ファイルを直接開く</a>
+  </video>
+</div>
+<p class="alt">再生できない場合は <a href="https://youtu.be/QaN7_BPrjsE">YouTube で見る</a></p>
+
+<main>
+  <h1>身体 → 数 → 疑い → 身体</h1>
+  <p class="meta">KOTARO OKUMURA　／　2026年　／　映像・音　1分40秒（音声あり）</p>
+
+  <p class="lead">100人の投手が投げた411球を、機械学習モデルが「見る」とき、身体は1球につき1点へ縮みます。この作品は、その1点が身体から何を捨てて作られ、どこまで確かで、どこから先が分からないのかを、映像と音にしたものです。</p>
+
+  <h2>制作意図</h2>
+  <p>冒頭、1人の投手が投げます。やがて411球が重なり、身体は雲になります。次に、その身体が1球につき1点へ吸い込まれます。球速を予測するモデルにとって、1球は「骨盤と肩のねじれの角度」と「それが予測をどれだけ動かしたか」という2つの数にすぎないからです。点が並ぶと、「ねじれが大きいほど球は速い」という主張が、澄んだ和音とともに現れます。</p>
+  <p>しかし、このモデルが説明できるのは、球速のばらつきの約3割です。後半では、その不確かさを画面に加えていきます。投手を入れ替えると変わる値は霞み、予測が外れる球は震え、データが少ない領域は色を失います。音は濁り、説明できない約7割が、ざわめきとして広がります。最後に点は身体へ戻り、そろえられていた時間はほどけて、それぞれの投手が自分のテンポで投げ始めます。</p>
+  <p>AIによる説明は、もっともらしい1枚の図として示されがちです。本作は、その図の確かさと不確かさを、解析の検証結果そのものを素材にして体験できるようにしました。「正解のフォーム」を示すことは目的としていません。</p>
+
+  <h2>構成</h2>
+  <dl class="acts">
+    <div><dt><b>身体</b>0:03 – 0:27</dt><dd>1人の投手が投げる。2球目で人が増え、3球目で411球が重なる。黄の線は骨盤、緑の線は肩。</dd></div>
+    <div><dt><b>数</b>0:27 – 0:41</dt><dd>ねじれが最大になる瞬間で止まり、身体が1球1点へ縮む。横はねじれの角度、縦と色は、その角度が球速の予測を動かした量。</dd></div>
+    <div><dt><b>主張</b>0:41 – 0:49</dt><dd>不確かさ 0。モデルの主張だけが、くっきりと見える。</dd></div>
+    <div><dt><b>疑い</b>0:49 – 1:15</dt><dd>不確かさを 0 から 1 へ。霞、震え、色の消失が、それぞれ別の種類の「分からなさ」を表す。</dd></div>
+    <div><dt><b>身体</b>1:15 – 1:32</dt><dd>点が身体へ戻る。411球は、それぞれの実際のテンポで動く。</dd></div>
+  </dl>
+
+  <h2>データと表現の対応</h2>
+  <dl class="map">
+    <div><dt>身体の点</dt><dd>モーションキャプチャで測定した関節の位置（1球あたり68点）</dd></div>
+    <div><dt>点の位置と色</dt><dd>骨盤と肩のねじれの角度と、その SHAP 値（青は予測を下げ、赤橙は上げる）</dd></div>
+    <div><dt>霞</dt><dd>投手を選び直してモデルを作り直したときの値のぶれと、別の設定のモデルとの食い違い</dd></div>
+    <div><dt>震え</dt><dd>その球に対する予測の外れの大きさ</dd></div>
+    <div><dt>色の消失</dt><dd>近くにあるデータの少なさ</dd></div>
+    <div><dt>音</dt><dd>すべて自作の合成音。1点が1声で、不確かさは音程のずれ、ビブラート、音の消失、ざわめきになる</dd></div>
+  </dl>
+  <p class="note">冒頭の投手の頭部には測定点がないため、背骨の延長上に点の集まりを目印として置いています。</p>
+
+  <h2>解析の要点</h2>
+  <p>映像の中の位置、色、霞、震えは、すべて次の解析で得た数値から決めています。</p>
+  <dl class="facts">
+    <div><dt>データ</dt><dd>投球411球、投手100人（1人あたり2〜5球）。大学生が約76%を占める</dd></div>
+    <div><dt>モデル</dt><dd>XGBoost（深さ2、200本）。体の動き5指標と、身長・体重・年齢から球速を予測</dd></div>
+    <div><dt>検証</dt><dd>同じ投手が学習側と検証側にまたがらない5分割交差検証を10回。誤差（RMSE）3.92 mph、決定係数 0.31</dd></div>
+    <div><dt>偶然との比較</dt><dd>球速を投手の間で入れ替える並べ替え検定で、偶然では説明できない予測力を確認（p ≈ 0.005）</dd></div>
+    <div><dt>寄与の計算</dt><dd>SHAP（TreeSHAP）。投手を選び直して学習し直す再標本化を200回行い、値の安定性を確かめた</dd></div>
+  </dl>
+  <figure>
+    <svg viewBox="0 0 640 300" role="img" aria-label="骨盤と肩のねじれの角度ごとの SHAP 値。25度未満で低く、30度から40度で高い。">
+      <g stroke="#2a2926" stroke-width="1">
+        <line x1="60" y1="30" x2="610" y2="30"/><line x1="60" y1="74" x2="610" y2="74"/>
+        <line x1="60" y1="162" x2="610" y2="162"/><line x1="60" y1="206" x2="610" y2="206"/><line x1="60" y1="250" x2="610" y2="250"/>
+      </g>
+      <line x1="60" y1="118" x2="610" y2="118" stroke="#6b6861" stroke-width="1"/>
+      <g text-anchor="end"><text x="50" y="34">+2</text><text x="50" y="78">+1</text><text x="50" y="122">0</text><text x="50" y="166">−1</text><text x="50" y="210">−2</text><text x="50" y="254">−3</text></g>
+      <g stroke-width="2" stroke-linecap="round">
+        <line x1="100" y1="136.9" x2="100" y2="228.4" stroke="#6aa6ff"/><line x1="210" y1="108.3" x2="210" y2="174.8" stroke="#a9c6f5"/>
+        <line x1="320" y1="70.0" x2="320" y2="112.3" stroke="#f0a58c"/><line x1="430" y1="56.4" x2="430" y2="106.1" stroke="#f0a58c"/>
+        <line x1="540" y1="70.9" x2="540" y2="144.0" stroke="#d9cfc8"/>
+      </g>
+      <circle cx="100" cy="176.1" r="6" fill="#6aa6ff"/><circle cx="210" cy="141.8" r="6" fill="#a9c6f5"/>
+      <circle cx="320" cy="93.8" r="6" fill="#f0a58c"/><circle cx="430" cy="82.8" r="6" fill="#f0a58c"/><circle cx="540" cy="103.9" r="6" fill="#d9cfc8"/>
+      <g text-anchor="middle">
+        <text x="100" y="276">20–25°</text><text x="210" y="276">25–30°</text><text x="320" y="276">30–35°</text><text x="430" y="276">35–40°</text><text x="540" y="276">40–45°</text>
+        <text x="100" y="293">56球</text><text x="210" y="293">86球</text><text x="320" y="293">119球</text><text x="430" y="293">92球</text><text x="540" y="293">40球</text>
+      </g>
+      <text x="60" y="18">球速の予測を動かした量（mph）</text>
+    </svg>
+    <figcaption>骨盤と肩のねじれの角度ごとの SHAP 値。点は200回の再標本化の中央値、縦線は90%区間。25度未満より30〜38度のほうが高いことは200回すべてで変わらなかった（差の中央値 +2.39 mph）。一方、38度以上で下がるかどうかは安定しない。</figcaption>
+  </figure>
+  <p class="note">モデルが説明できるのは球速のばらつきの約3割で、示しているのは傾向であり、因果ではありません。同じ投手の球は互いによく似ているため、実質的な標本は411球ではなく約100人です。対象の多くは大学生で、プロや一般の投手にそのまま当てはめることはできません。</p>
+
+  <h2>展示について</h2>
+  <p>展示では、TouchDesigner によるインタラクティブ版を予定しています。来場者が不確かさのつまみを自分の手で動かし、モデルの主張が霞んでいく過程を操作できます。</p>
+
+  <h2>Summary</h2>
+  <p lang="en">411 pitches thrown by 100 pitchers. A machine-learning model that predicts ball velocity sees each pitch as a single point: one angle, and how much that angle moved its prediction. This piece shows the body collapsing into that point, the model's confident claim, and then everything the claim leaves out. Haze, tremor and fading colour each stand for a different kind of uncertainty measured in the analysis. In the end the points return to bodies, each moving at its own tempo.</p>
+
+  <h2>クレジット</h2>
+  <p class="note">Data: <a href="https://openbiomechanics.org">OpenBiomechanics Project</a> (Driveline Baseball), <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>. Modified.<br>
+  元データから、モデルによる計算値（SHAP 値、不確かさの指標）と表示用の座標を追加し、関節位置の時系列を投球の節目でそろえています。</p>
+</main>
+
+</body>
+</html>
